@@ -269,12 +269,13 @@ li{
                                         <button class="btn btn-outline-warning  my-2 mx-2" name="save" value="Saved" type="submit"
                                             style="width: 150px; font-size: medium;"
                                             onclick="validateform()">Save</button>
-                                        <button class="btn btn-outline-warning my-2 mx-2" type="reset"
-                                            style=" width: 150px; font-size: medium;"
-                                            onclick="goToTop()">Cancel</button>
                                         <button class="btn btn-outline-warning my-2 mx-2 " name="save" value="Draft" type="submit"
                                             style="width: 150px; font-size: medium;"
                                             onclick="validateform()">Draft</button>
+                                        <a href="{% url 'add_godown' %}"class="btn btn-outline-warning my-2 mx-2" type="reset"
+                                            style=" width: 150px; font-size: medium;"
+                                            >Cancel</a>
+                                        
 
                                     </div>
                                 </form>
@@ -753,8 +754,10 @@ li{
 
         <script>
             function goToTop() {
+                document.getElementById("Item").selectedIndex = 0;
                 document.body.scrollTop = 0; // For Safari
                 document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+                
             }
 
             function bankdisplay() {

@@ -42,19 +42,21 @@
               </div>
               <div class="col-sm-10 col-lg-5 ml-5 flex-column" id="marginid">
                 <div class="flex-column float-end ">
-                  <a onclick="ExportToExcel()" class="btn text-center pt-2 btn-outline-warning ">
-                    <i class='fas fa-file-export' style='font-size:20px'></i> <span
-                      style="margin-top: 3px;">Export</span>
-                  </a>
-                  <a data-toggle="modal" data-target="#importmodal" class="btn text-center pt-2 btn-outline-warning"
+                  <a class="btn text-center  pt-2 btn-outline-warning" data-bs-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false" role="button">
+                  <i class="fa fa-filter mt-1"></i>
+                </a>
+                <a data-toggle="modal" data-target="#importmodal" class="btn text-center pt-2 btn-outline-warning"
                     onclick="sampleexcel()">
                     <i class="fas fa-file-import" style='font-size:20px'></i> <span
                       style="margin-top: 3px;">Import</span>
                   </a>
-                  <a class="btn text-center  pt-2 btn-outline-warning" data-bs-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false" role="button">
-                    <i class="fa fa-filter mt-1"></i>
+                  <a onclick="ExportToExcel()" class="btn text-center pt-2 btn-outline-warning ">
+                    <i class='fas fa-file-export' style='font-size:20px'></i> <span
+                      style="margin-top: 3px;">Export</span>
                   </a>
+                  
+                 
                   <div class="dropdown-menu m-1">
                     <a class="dropdown-item" onclick="applyFilter('All')">All</a>
                     <a class="dropdown-item" onclick="applyFilter('Saved')">Saved</a>

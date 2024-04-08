@@ -83,8 +83,12 @@
                                   <label class="text-end d-block">{{i.date}}</label> 
                                 </td>
                                 <td>
-                                  <label class="text-end d-block">{{i.action}}</label> 
+                                    <label class="text-end d-block">{{i.status}}</label> 
+                                    <label class="text-end text-black d-block">{{i.action}}</label> 
+                                  
                                 </td>
+
+                                
                                 
                               </tr>
                             {% endfor %}
@@ -143,7 +147,7 @@
                           </a>
                           <a class="btn btn-outline-warning btn-sm" href="{% url 'change_status' p.id %}" id="sts">{{p.status}}</a>
                           {% if p.action == 'Draft' %}
-                          <a class="btn btn-outline-warning btn-sm" href="{% url 'change_action' p.id %}" id="sts">{{p.action}}</a>
+                          <a class="btn btn-outline-warning btn-sm" href="{% url 'change_action' p.id %}" id="sts">Convert</a>
                           {% endif %}
                           <a class="btn btn-outline-warning btn-sm" href="" data-toggle="modal" data-target="#commentModal2" data-toggle="tooltip" title="history">
                             <i class="fa-solid fa-clock-rotate-left"></i>
@@ -217,7 +221,7 @@
                             <div class="row mt-2">
                               <div class="col-5"><p  for="">Godown Name :</p></div>
                               <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_name}}</p>
+                                <p id="gname" class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_name}}</p>
                               </div>
                             </div>
                             <div class="row mt-2">
@@ -431,11 +435,11 @@
 
 // Use the correct selector to get the element by ID
 var element = document.getElementById('div-to-pdf') 
-
+var gname = document.getElementById('gname').innerText.trim(); 
         var opt =
         {
             margin: 0.5,
-            filename: 'overviewpage' + '.pdf',
+            filename: gname + '.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 4 },
             jsPDF: { unit: 'cm', format: 'letter', orientation: 'portrait', }

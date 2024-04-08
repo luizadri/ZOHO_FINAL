@@ -12776,7 +12776,7 @@ def Add_Item(request):                                                          
                 t=Items.objects.get(id=a.id)
                 b.items=t
                 b.save()
-                messages.success(request,'Item Added Successfully !!!')
+                # messages.success(request,'Item Added Successfully !!!')
                 return redirect('add_godown')
     elif log_user.user_type == 'Staff':
         staff_id = request.session['login_id']
@@ -12848,7 +12848,7 @@ def Add_Item(request):                                                          
                 t=Items.objects.get(id=a.id)
                 b.items=t
                 b.save()
-                messages.success(request,'Item Added Successfully !!!')
+                # messages.success(request,'Item Added Successfully !!!')
                 return redirect('add_godown')
     return redirect('add_godown')
 
@@ -13012,7 +13012,7 @@ def Add_Item_Edit(request,pk):                                                  
                 t=Items.objects.get(id=a.id)
                 b.items=t
                 b.save()
-                messages.success(request,'Item Added Successfully !!!')
+                # messages.success(request,'Item Added Successfully !!!')
                 return redirect('edit_godown',pk=pk)
     elif log_user.user_type == 'Staff':
         staff_id = request.session['login_id']
@@ -13084,7 +13084,7 @@ def Add_Item_Edit(request,pk):                                                  
                 t=Items.objects.get(id=a.id)
                 b.items=t
                 b.save()
-                messages.success(request,'Item Added Successfully !!!')
+                # messages.success(request,'Item Added Successfully !!!')
                 return redirect('edit_godown',pk=pk)
     return redirect('edit_godown',pk=pk)
 
