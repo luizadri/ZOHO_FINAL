@@ -12421,6 +12421,7 @@ def overview_page(request,pk):
             allmodules= ZohoModules.objects.get(company=dash_details,status='New')
             godown_obj = Godown.objects.filter(company = dash_details)
             p = Godown.objects.get(id = pk)
+            h = GodownHistory.objects.filter(godown=p).last()
             godown_history = GodownHistory.objects.filter(godown=p)
             comment = GodownComments.objects.filter(godown=p)
             context = {
@@ -12430,6 +12431,7 @@ def overview_page(request,pk):
             'allmodules':allmodules,
             'godown_obj':godown_obj,
             'p':p,
+            'h':h,
             'godown_history':godown_history,
             'comment':comment
             }
@@ -12439,6 +12441,7 @@ def overview_page(request,pk):
             godown_obj = Godown.objects.filter(company = dash_details.company)
             allmodules= ZohoModules.objects.get(company=dash_details.company,status='New')
             p = Godown.objects.get(id = pk)
+            h = GodownHistory.objects.filter(godown=p).last()
             godown_history = GodownHistory.objects.filter(godown=p)
             comment = GodownComments.objects.filter(godown=p)
             context = {
@@ -12449,6 +12452,7 @@ def overview_page(request,pk):
             'allmodules':allmodules,
             'godown_obj':godown_obj,
             'p':p,
+            'h':h,
             'godown_history':godown_history,
             'comment':comment
             }
@@ -12535,7 +12539,7 @@ def edit_godown_func(request):
                 godown_history = GodownHistory(company = company,
                                                login_details=log_details,
                                                godown=godown,
-                                               date=date,
+                                               date=datetime.now().date(),
                                                action='Edited')
                 godown_history.save()
 
@@ -12568,7 +12572,7 @@ def edit_godown_func(request):
                 godown_history = GodownHistory(company = company,
                                                login_details=log_details,
                                                godown=godown,
-                                               date=date,
+                                               date=datetime.now().date(),
                                                action='Edited')
                 godown_history.save()
         

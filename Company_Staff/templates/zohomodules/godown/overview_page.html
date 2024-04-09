@@ -165,15 +165,28 @@
                       </div><br>
             
                       <div id="printdiv" style="color:black;" >
-                        <div class="row " id="div-to-pdf" style="background-color: #fffffffd; margin-left:1px; margin-right: 1rem; ">
+                        <div class="row " id="div-to-pdf" style="background-color: #c4c1c1fd; margin-left:1px; margin-right: 1rem; ">
                           <br>
                           <div class="row">
-                            <div class="col-3 mt-3" >
-                             
+                            <div class="col-6 mt-3" >
+                              {% if h.action == 'Created' %}
+                             <h5 style="color: green;">Created By : <span class="text-dark">{{h.login_details.first_name}} {{h.login_details.last_name}}</span></h5>
+                             {% else %}
+                             <h5 style="color: rgb(215, 2, 2);">Last Edited By : <span class="text-dark">{{h.login_details.first_name}} {{h.login_details.last_name}}</span></h5>
+                             {% endif %}
+
+                            </div>
+                            <div class="col-6 mt-3" >
+                              
+                             <h5 class="text-dark float-end">{{h.date}}</h5>
+                              
+                            </div>
+                            <div class="col-3 mt-3" style="text-align: right;">
+                              
                             </div>
                             <div class="col-6 mt-3">
                               <div class="row text-center">
-                                <h2  >Godown Details</h2>
+                                <h2  >{{p.godown_name}}</h2>
                               </div>
                             </div>
                             <div class="col-3 mt-3" style="text-align: right;">
