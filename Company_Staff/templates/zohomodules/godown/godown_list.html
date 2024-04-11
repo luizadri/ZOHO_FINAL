@@ -232,7 +232,7 @@
     const table = document.getElementById('employeetable'); // Replace 'myTable' with your table's ID
     const wb = XLSX.utils.table_to_book(table);
 
-    XLSX.writeFile(wb, 'payroll_list.xlsx');
+    XLSX.writeFile(wb, 'godown_list.xlsx');
   }
 </script>
 
@@ -242,7 +242,7 @@
     const ws1 = XLSX.utils.table_to_sheet(table1);
     const wb1 = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb1, ws1, 'Sheet1');
-    XLSX.writeFile(wb1, 'pay roll.xlsx');
+    XLSX.writeFile(wb1, 'godown list.xlsx');
   }
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

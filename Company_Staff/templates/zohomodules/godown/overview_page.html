@@ -105,8 +105,10 @@
                         </div>
                       </div>
                       <div class="row">
+                        <h3 class="text-white"><b>{{p.godown_name}}</b></h3>
                         <div class="col-md-2" >
-                          <a class="btn bg-warning text-light btn-sm" ><i class="fas fa-eye"></i> Overview</a>
+                          
+                          <a style="background-color: chocolate;" class="btn text-light btn-sm" ><i class="fas fa-eye"></i> Overview</a>
                         </div>
                         <div class="col-md-10 col-lg-10 col-sm-12" style="text-align: right; ">
                           <a href="{% url 'edit_godown' p.id %}"  class=" text-dark" >
@@ -186,7 +188,7 @@
                             </div>
                             <div class="col-6 mt-3">
                               <div class="row text-center">
-                                <h2  >{{p.godown_name}}</h2>
+                                <h2  ><b>GODOWN DETAILS</b></h2>
                               </div>
                             </div>
                             <div class="col-3 mt-3" style="text-align: right;">
@@ -205,63 +207,67 @@
                                 
                               </div>
                             </div><br>
-                            <div class="row mt-1">
-                              <div class="col-5"><p for=""> Date : </p></div>
-                              <div class="col-7">
-                                <p class="bold"  style="max-width: 15rem;word-wrap: break-word;">{{p.date}}</p>
-                              </div>
-                            </div>
-                            <div class="row mt-2">
-                              <div class="col-5"><p  for="">Item:</p></div>
-                              <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.item.item_name}}</p>
-                              </div>
-                            </div>
-                           
-                              <div class="row mt-2">
-                                <div class="col-5"><p  for="">HSN :</p></div>
-                                <div class="col-7">
-                                  <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.hsn}}</p>
-                                </div>
-                              </div>
-                     
-                            <div class="row mt-2">
-                              <div class="col-5"><p  for="">Stock in Hand :</p></div>
-                              <div class="col-7">
-                                <p class="bold" style="max-width: 15rem;word-wrap: break-word;">{{p.stock_in_hand}}</p>
-                              </div>
-                            </div>
-                            <div class="row mt-2">
-                              <div class="col-5"><p  for="">Godown Name :</p></div>
-                              <div class="col-7">
-                                <p id="gname" class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_name}}</p>
-                              </div>
-                            </div>
-                            <div class="row mt-2">
-                              <div class="col-5"><p  for="">Godown Address :</p></div>
-                              <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_address}}</p>
-                              </div>
-                            </div>
                             
-                            <div class="row mt-2">
-                              <div class="col-5"><p  for="">Stock Keeping:</p></div>
-                              <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.stock_keeping}}</p>
-                              </div>
-                            </div>
-                            <div class="row mt-1">
-                              <div class="col-5"><p  for="">Distance:</p></div>
-                              <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.distance}}</p>
-                              </div>
-                            </div>
-                            <div class="row mt-1">
-                              <div class="col-5"><p  for="">Status:</p></div>
-                              <div class="col-7">
-                                <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.status}}</p>
-                              </div>
-                            </div>
+
+                                <div class="row mt-1">
+                                  <div class="col-5"><p for=""> Date : </p></div>
+                                  <div class="col-7">
+                                    <p class="bold"  style="max-width: 15rem;word-wrap: break-word;">{{p.date}}</p>
+                                  </div>
+                                </div>
+                                <div class="row mt-2">
+                                  <div class="col-5"><p  for="">Item:</p></div>
+                                  <div class="col-7">
+                                    <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.item.item_name}}</p>
+                                  </div>
+                                </div>
+                               
+                                  <div class="row mt-2">
+                                    <div class="col-5"><p  for="">HSN :</p></div>
+                                    <div class="col-7">
+                                      <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.hsn}}</p>
+                                    </div>
+                                  </div>
+                         
+                                <div class="row mt-2">
+                                  <div class="col-5"><p  for="">Stock in Hand :</p></div>
+                                  <div class="col-7">
+                                    <p class="bold" style="max-width: 15rem;word-wrap: break-word;">{{p.stock_in_hand}}</p>
+                                  </div>
+                                </div>
+                                <div class="row mt-2">
+                                  <div class="col-5"><p  for="">Godown Name :</p></div>
+                                  <div class="col-7">
+                                    <p id="gname" class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_name}}</p>
+                                  </div>
+                                </div>
+                                <div class="row mt-2">
+                                  <div class="col-5"><p  for="">Godown Address :</p></div>
+                                  <div class="col-7">
+                                    <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.godown_address}}</p>
+                                  </div>
+                                </div>
+                                
+                                <div class="row mt-2">
+                                  <div class="col-5"><p  for="">Stock Keeping:</p></div>
+                                  <div class="col-7">
+                                    <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.stock_keeping}}</p>
+                                  </div>
+                                </div>
+                                <div class="row mt-1">
+                                  <div class="col-5"><p  for="">Distance:</p></div>
+                                  <div class="col-7">
+                                    <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.distance}}</p>
+                                  </div>
+                                </div>
+                                <div class="row mt-1">
+                                  <div class="col-5"><p  for="">Status:</p></div>
+                                  <div class="col-7">
+                                    <p class="bold " style="max-width: 15rem;word-wrap: break-word;">{{p.status}}</p><br>
+                                  </div>
+                                </div>
+                              
+                            
                             
               
                           </div>
