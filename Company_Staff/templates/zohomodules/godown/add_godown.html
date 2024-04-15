@@ -938,27 +938,42 @@ li{
 <!-- SCRIPTS -->
       
               <!-- HSN CODE VALIDATION SCRIPT -->
-      
-              <script>
+        
+              <script type="text/javascript">
+                // Pass Django godown_data to JavaScript
+                var godown_obj = {{ godown_data|safe }};
+            </script>
+            <script type="text/javascript">
                 function validateSixDigits(field) {
-                    // Define the regular expression pattern for exactly six digits
                     var pattern = /^\d{6}$/;
-            
-                    // Check if the field matches the pattern
                     return pattern.test(field);
                 }
-            
+        
+                function checkExistence(hsnCode, godown) {
+                    for (var i = 0; i < godown.length; i++) {
+                        if (godown[i].fields.hsn === hsnCode) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+        
                 function validateInput() {
                     var inputField = document.getElementById("myInputField");
                     var inputValue = inputField.value;
-            
                     var validationResultDiv = document.getElementById("validationResult");
-            
-                    if (validateSixDigits(inputValue)) {
-                        validationResultDiv.textContent = "Valid";
-                    } else {
+        
+                    if (!validateSixDigits(inputValue)) {
                         validationResultDiv.textContent = "Invalid: The field does not contain six digits.";
+                        return;
                     }
+        
+                    if (checkExistence(inputValue, godown_obj)) {
+                        validationResultDiv.textContent = "Invalid: This HSN code is already in use.";
+                        return;
+                    }
+        
+                    validationResultDiv.textContent = "Valid";
                 }
             </script>
                     <!-- HSN CODE VALIDATION SCRIPT END -->

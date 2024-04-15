@@ -12292,7 +12292,7 @@ def list_godown(request):
             }
 
         return render(request, 'zohomodules/godown/godown_list.html', context)
-    
+from django.core import serializers
 def add_godown(request):
 
     if 'login_id' in request.session:
@@ -12304,6 +12304,8 @@ def add_godown(request):
             dash_details = CompanyDetails.objects.get(login_details=log_details,superadmin_approval=1,Distributor_approval=1)
             allmodules= ZohoModules.objects.get(company=dash_details,status='New')
             item_obj = Items.objects.filter(company = dash_details)
+            godown_obj = Godown.objects.filter(company=dash_details)
+            godown_data = serializers.serialize('json', godown_obj)
             units = Unit.objects.filter(company = dash_details)
             accounts = Chart_of_Accounts.objects.filter(company=dash_details)
             context = {
@@ -12312,6 +12314,7 @@ def add_godown(request):
             'dash_details':dash_details,
             'allmodules':allmodules,
             'item_obj':item_obj,
+            'godown_data':godown_data,
             'units':units,
             'accounts':accounts
             }
@@ -12321,6 +12324,8 @@ def add_godown(request):
             allmodules= ZohoModules.objects.get(company=dash_details.company,status='New')
             item_obj = Items.objects.filter(company = dash_details.company)
             units = Unit.objects.filter(company = dash_details.company)
+            godown_obj = Godown.objects.filter(company=dash_details.company)
+            godown_data = serializers.serialize('json', godown_obj)
             accounts = Chart_of_Accounts.objects.filter(company=dash_details.company)
             context = {
             'details': dash_details,
@@ -12328,6 +12333,7 @@ def add_godown(request):
             'dash_details':dash_details,
             'allmodules':allmodules,
             'item_obj':item_obj,
+            'godown_data':godown_data,
             'units':units,
             'accounts':accounts
             }
@@ -12471,6 +12477,8 @@ def edit_godown(request,pk):
             allmodules= ZohoModules.objects.get(company=dash_details,status='New')
             item_obj = Items.objects.filter(company = dash_details)
             units = Unit.objects.filter(company = dash_details)
+            godown_ob = Godown.objects.filter(company=dash_details)
+            godown_data = serializers.serialize('json', godown_ob)
             godown_obj = Godown.objects.get(id=pk)
             accounts = Chart_of_Accounts.objects.filter(company=dash_details)
             context = {
@@ -12480,6 +12488,7 @@ def edit_godown(request,pk):
             'allmodules':allmodules,
             'item_obj':item_obj,
             'units':units,
+            'godown_data':godown_data,
             'accounts':accounts,
             'godown_obj':godown_obj
             }
@@ -12489,6 +12498,8 @@ def edit_godown(request,pk):
             allmodules= ZohoModules.objects.get(company=dash_details.company,status='New')
             item_obj = Items.objects.filter(company = dash_details.company)
             units = Unit.objects.filter(company = dash_details.company)
+            godown_ob = Godown.objects.filter(company=dash_details.company)
+            godown_data = serializers.serialize('json', godown_ob)
             godown_obj = Godown.objects.get(id=pk)
             accounts = Chart_of_Accounts.objects.filter(company=dash_details.company)
             context = {
@@ -12497,6 +12508,7 @@ def edit_godown(request,pk):
             'dash_details':dash_details,
             'allmodules':allmodules,
             'item_obj':item_obj,
+            'godown_data':godown_data,
             'units':units,
             'accounts':accounts,
             'godown_obj':godown_obj
