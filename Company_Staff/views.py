@@ -12412,7 +12412,7 @@ def add_godown_func(request):
                 godown_history.save()
 
         
-        messages.success(request,'Added Successfully')
+        # messages.success(request,'Added Successfully')
         return redirect('list_godown')
     
 def overview_page(request,pk):
@@ -12588,7 +12588,7 @@ def edit_godown_func(request):
                                                action='Edited')
                 godown_history.save()
         
-        messages.success(request,'Edited Successfully')
+        # messages.success(request,'Edited Successfully')
         return redirect('list_godown')
     
 
@@ -12643,7 +12643,7 @@ def AddComment(request,pk):
                                 comment = comments)
                 comment.save()
         
-        messages.success(request,'Added Comment Successfully')
+        # messages.success(request,'Added Comment Successfully')
         return redirect('overview_page',pk=pk)
     
 def AddFile(request, pk):
@@ -12653,7 +12653,7 @@ def AddFile(request, pk):
         file = request.FILES.get('file')
         godown_obj.file=file
         godown_obj.save()
-    messages.success(request,'Added File Successfully')
+    # messages.success(request,'Added File Successfully')
     return redirect('overview_page',pk=pk)
 
 def file_download(request,pk):
@@ -12781,11 +12781,11 @@ def Add_Item(request):                                                          
             
             if Items.objects.filter(item_name=item_name, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same name exsits !!!')
+                # messages.error(request,'Item with same name exsits !!!')
                 return redirect('add_godown')
             elif Items.objects.filter(hsn_code=hsncode, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same  hsn code exsits !!!')
+                # messages.error(request,'Item with same  hsn code exsits !!!')
                 return redirect('add_godown')
             else:
                 a.save()    
@@ -12852,12 +12852,12 @@ def Add_Item(request):                                                          
         
             if Items.objects.filter(item_name=item_name,company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same name exsits !!!')
+                # messages.error(request,'Item with same name exsits !!!')
                 return redirect('add_godown')
                 
             elif Items.objects.filter(hsn_code=hsncode, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same  hsn code exsits !!!')
+                # messages.error(request,'Item with same  hsn code exsits !!!')
                 return redirect('add_godown')
             else:
                 a.save()    
@@ -13017,11 +13017,11 @@ def Add_Item_Edit(request,pk):                                                  
             
             if Items.objects.filter(item_name=item_name, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same name exsits !!!')
+                # messages.error(request,'Item with same name exsits !!!')
                 return redirect('edit_godown',pk=pk)
             elif Items.objects.filter(hsn_code=hsncode, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same  hsn code exsits !!!')
+                # messages.error(request,'Item with same  hsn code exsits !!!')
                 return redirect('edit_godown',pk=pk)
             else:
                 a.save()    
@@ -13088,12 +13088,12 @@ def Add_Item_Edit(request,pk):                                                  
         
             if Items.objects.filter(item_name=item_name,company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same name exsits !!!')
+                # messages.error(request,'Item with same name exsits !!!')
                 return redirect('edit_godown',pk=pk)
                 
             elif Items.objects.filter(hsn_code=hsncode, company=c).exists():
                 error='yes'
-                messages.error(request,'Item with same  hsn code exsits !!!')
+                # messages.error(request,'Item with same  hsn code exsits !!!')
                 return redirect('edit_godown',pk=pk)
             else:
                 a.save()    

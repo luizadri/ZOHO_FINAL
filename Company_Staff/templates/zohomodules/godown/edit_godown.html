@@ -940,41 +940,50 @@ li{
               <!-- HSN CODE VALIDATION SCRIPT -->
       
               <script type="text/javascript">
-                // Pass Django godown_data to JavaScript
                 var godown_obj = {{ godown_data|safe }};
             </script>
             <script type="text/javascript">
-                function validateSixDigits(field) {
-                    var pattern = /^\d{6}$/;
-                    return pattern.test(field);
-                }
-        
-                function checkExistence(hsnCode, godown) {
-                    for (var i = 0; i < godown.length; i++) {
-                        if (godown[i].fields.hsn === hsnCode) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-        
-                function validateInput() {
+                document.getElementById('add').addEventListener('submit', function(event) {
                     var inputField = document.getElementById("myInputField");
                     var inputValue = inputField.value;
                     var validationResultDiv = document.getElementById("validationResult");
         
+                    // Function to validate exactly six digits
+                    function validateSixDigits(field) {
+                        var pattern = /^\d{6}$/;
+                        return pattern.test(field);
+                    }
+        
+                    // Function to check existence of HSN code in godown data
+                    function checkExistence(hsnCode, godown) {
+                        for (var i = 0; i < godown.length; i++) {
+                            if (godown[i].fields.hsn === hsnCode) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+        
+                    // Validate the input
                     if (!validateSixDigits(inputValue)) {
                         validationResultDiv.textContent = "Invalid: The field does not contain six digits.";
+                        event.preventDefault(); // Prevent form submission
+                        inputField.focus(); // Focus on the input field
+                        inputField.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Smooth scroll to the input field
                         return;
                     }
         
                     if (checkExistence(inputValue, godown_obj)) {
                         validationResultDiv.textContent = "Invalid: This HSN code is already in use.";
+                        event.preventDefault(); // Prevent form submission
+                        inputField.focus(); // Focus on the input field
+                        inputField.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Smooth scroll to the input field
                         return;
                     }
         
                     validationResultDiv.textContent = "Valid";
-                }
+                    // If you reach this point, the form will submit normally.
+                });
             </script>
                     <!-- HSN CODE VALIDATION SCRIPT END -->
             
